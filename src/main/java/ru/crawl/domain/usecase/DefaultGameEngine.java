@@ -20,8 +20,8 @@ public class DefaultGameEngine implements GameEngine {
 
         boolean playerActionUsedTurn = false;
 
-        if (cmd instanceof Command.Move m) {
-            playerActionUsedTurn = state.tryMovePlayer(m.direction(), log);
+        if (cmd instanceof Command.Move movement) {
+            playerActionUsedTurn = state.tryMovePlayer(movement.direction(), log);
         }
         else if (cmd instanceof Command.Wait) {
             log.add("Player waits");
