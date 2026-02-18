@@ -4,11 +4,11 @@ public final class FirstHitIgnoredSpecial implements EnemySpecial {
     private boolean firstHitIgnored = true;
 
     @Override
-    public int onBeforeTakeDamage(Enemy enemy, int incomingDamage) {
+    public boolean onBeforePlayerAttack(Enemy enemy, Player player) {
         if (firstHitIgnored) {
             firstHitIgnored = false;
-            return 0;
+            return false; // первый удар по вампиру всегда промах
         }
-        return incomingDamage;
+        return true;
     }
 }

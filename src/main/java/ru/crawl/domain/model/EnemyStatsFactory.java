@@ -43,10 +43,10 @@ public final class EnemyStatsFactory {
                 yield new EnemyStats(hpMax, strength, dexterity, hostility);
             }
             case MIMIC -> {
-                int hpMax = 22 + 2 * (lvl - 1);
-                double strength = 8 + 0.25 * (lvl - 1);
-                double dexterity = 10 + 0.35 * (lvl - 1);
-                int hostility = 2;
+                int hpMax = 34 + 3 * (lvl - 1);
+                double strength = 4.5 + 0.15 * (lvl - 1);
+                double dexterity = 15 + 0.3 * (lvl - 1);
+                int hostility = 3;
                 yield new EnemyStats(hpMax, strength, dexterity, hostility);
             }
             default -> throw new IllegalArgumentException("Unsupported: " + type);

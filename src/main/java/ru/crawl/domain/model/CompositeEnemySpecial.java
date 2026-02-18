@@ -10,6 +10,14 @@ public final class CompositeEnemySpecial implements EnemySpecial {
     }
 
     @Override
+    public boolean onBeforePlayerAttack(Enemy enemy, Player player) {
+        for (EnemySpecial s : specials) {
+            if (!s.onBeforePlayerAttack(enemy, player)) return false;
+        }
+        return true;
+    }
+
+    @Override
     public int onBeforeTakeDamage(Enemy enemy, int incomingDamage) {
         int dmg = incomingDamage;
         for (EnemySpecial s : specials) dmg = s.onBeforeTakeDamage(enemy, dmg);

@@ -12,10 +12,10 @@ public final class EnemySpecialFactory {
         switch (type) {
             case VAMPIRE -> {
                 list.add(new FirstHitIgnoredSpecial());
-                // TODO: добавить VampireDrainMaxHpSpecial
+                list.add(new VampireDrainMaxHpSpecial());
             }
             case MAGIC_SNAKE -> {
-                // TODO: добавить SleepOnHitSpecial (25–35%)
+                list.add(new SleepOnHitSpecial());
             }
             default -> { }
         }

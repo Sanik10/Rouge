@@ -4,6 +4,7 @@ import ru.crawl.domain.model.Direction;
 
 public sealed interface Command permits
         Command.Move,
+        Command.UseStairs,
         Command.Wait,
         Command.OpenInventory,
         Command.CloseMenu,
@@ -11,9 +12,23 @@ public sealed interface Command permits
         Command.UseSelected,
         Command.EquipSelected,
         Command.Confirm,
-        Command.Cancel
+        Command.Cancel,
+        Command.Quit,
+        Command.Save,
+        Command.Toggle3dMode,
+        Command.RotateLeft,
+        Command.RotateRight,
+        Command.MoveForward3d,
+        Command.MoveBackward3d,
+        Command.OpenWeaponMenu,
+        Command.OpenFoodMenu,
+        Command.OpenElixirMenu,
+        Command.OpenScrollMenu,
+        Command.UnequipWeapon
+
 {
     record Move(Direction direction) implements Command {}
+    record UseStairs() implements Command {}
     record Wait() implements Command {}
 
     // пока только инвентарь.
@@ -30,4 +45,20 @@ public sealed interface Command permits
     // вдруг будут окна по типу диалогов или ошибок
     record Confirm() implements Command {}
     record Cancel() implements Command {}
+
+    record Quit() implements Command {}
+
+    record Save() implements Command {}
+    record Toggle3dMode() implements Command {}
+    record RotateLeft() implements Command {}
+    record RotateRight() implements Command {}
+
+    record MoveForward3d() implements Command {}
+    record MoveBackward3d() implements Command {}
+    record OpenWeaponMenu() implements Command {}
+    record OpenFoodMenu() implements Command {}
+    record OpenElixirMenu() implements Command {}
+    record OpenScrollMenu() implements Command {}
+
+    record UnequipWeapon() implements Command {}
 }
